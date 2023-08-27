@@ -35,6 +35,18 @@
     "typescript": "^4.1.6"
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text"
+    ],
+    "collectCoverageFrom": [
+      "./src/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 80
+      }
+    }
   }
 }
