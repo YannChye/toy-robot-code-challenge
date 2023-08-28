@@ -44,3 +44,19 @@ MOVE
 REPORT
 Output: 3,3,NORTH
 ```
+
+## HOW TO RUN
+
+### Docker
+
+To run the toy robot app:
+
+```
+docker compose run --rm toy-robot
+```
+
+To run the jest tests:
+
+```
+docker compose run --rm test
+```

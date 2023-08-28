@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  toy-robot:
+    image: node:16
+    command: sh -c "npm install && npm run start"
+    volumes:
+      - .:/app/
+    working_dir: /app
+    stdin_open: true
+    tty: true
+  test:
+    image: node:16
+    command: sh -c "npm install && npm run test"
+    volumes:
+      - .:/app/
+    working_dir: /app

@@ -45,5 +45,6 @@
         "allowTemplateLiterals": true
       }
     ]
-  }
+  },
+  "ignorePatterns": ["build/*", "node_modules/*"]
 }
