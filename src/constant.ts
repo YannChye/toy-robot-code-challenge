@@ -43,7 +43,7 @@ export const COMMANDS = [
     description: "Rotates the robot 90 degrees to the right.",
   },
   {
-    command: CommandOptions.RIGHT,
+    command: CommandOptions.REPORT,
     description: "Reports the X,Y, and F of the robot.",
   },
 ];
