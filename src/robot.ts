@@ -1,3 +1,8 @@
+import {
+  COLOR,
+  ROBOT_INVALID_LOCATION_ERROR,
+  ROBOT_NOT_PLACED_ERROR,
+} from "./constant";
 import Table from "./table";
 import { Direction, Placement } from "./types";
 
@@ -11,6 +16,8 @@ export default class Robot {
       this.xPosition = placement.xPosition;
       this.yPosition = placement.yPosition;
       this.direction = placement.direction as Direction;
+    } else {
+      console.log(COLOR.RED + ROBOT_INVALID_LOCATION_ERROR + COLOR.RESET);
     }
   }
 
@@ -31,6 +38,7 @@ export default class Robot {
         newXPosition -= 1;
         break;
       default:
+        console.log(COLOR.RED + ROBOT_NOT_PLACED_ERROR + COLOR.RESET);
         return;
     }
     this.place({
@@ -48,6 +56,8 @@ export default class Robot {
       turn === "left" ? (directionIndex -= 1) : (directionIndex += 1);
       directionIndex = (directionIndex + 4) % 4;
       this.direction = Object.values(Direction)[directionIndex];
+    } else {
+      console.log(COLOR.RED + ROBOT_NOT_PLACED_ERROR + COLOR.RESET);
     }
   }
 
@@ -57,7 +67,11 @@ export default class Robot {
       !Number.isNaN(this.yPosition) &&
       this.direction
     ) {
-      console.log(`${this.xPosition},${this.yPosition},${this.direction}`);
+      console.log(
+        `${COLOR.GREEN}Robot location: ${this.xPosition},${this.yPosition},${this.direction}${COLOR.RESET}`
+      );
+    } else {
+      console.log(COLOR.RED + ROBOT_NOT_PLACED_ERROR + COLOR.RESET);
     }
   }
 }

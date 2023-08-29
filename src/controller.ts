@@ -1,3 +1,4 @@
+import { COLOR, INVALID_COMMAND_ERROR } from "./constant";
 import Robot from "./robot";
 import { CommandOptions, Placement } from "./types";
 
@@ -12,6 +13,8 @@ export default class Controller {
         placement = this.convertToPlacement(commandArray[1]) ?? undefined;
         if (placement) {
           this.robot.place(placement);
+        } else {
+          console.log(COLOR.RED + INVALID_COMMAND_ERROR + COLOR.RESET);
         }
         break;
       case CommandOptions.LEFT:
@@ -27,6 +30,7 @@ export default class Controller {
         this.robot.report();
         break;
       default:
+        console.log(COLOR.RED + INVALID_COMMAND_ERROR + COLOR.RESET);
     }
   }
 

@@ -22,27 +22,27 @@ This is a **console application** that simulates a toy robot moving on a square 
 ## EXAMPLE INPUT AND OUTPUT
 
 ```
-PLACE 0,0,NORTH
-MOVE
-REPORT
-Output: 0,1,NORTH
+> PLACE 0,0,NORTH
+> MOVE
+> REPORT
+Robot location: 0,1,NORTH
 ```
 
 ```
-PLACE 0,0,NORTH
-LEFT
-REPORT
-Output: 0,0,WEST
+> PLACE 0,0,NORTH
+> LEFT
+> REPORT
+Robot location: 0,0,WEST
 ```
 
 ```
-PLACE 1,2,EAST
-MOVE
-MOVE
-LEFT
-MOVE
-REPORT
-Output: 3,3,NORTH
+> PLACE 1,2,EAST
+> MOVE
+> MOVE
+> LEFT
+> MOVE
+> REPORT
+Robot location: 3,3,NORTH
 ```
 
 ## HOW TO RUN
