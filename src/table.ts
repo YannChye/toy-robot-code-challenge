@@ -9,7 +9,7 @@ export default abstract class Table {
       placement.xPosition >= 0 &&
       placement.xPosition < this.width &&
       placement.yPosition >= 0 &&
-      placement.yPosition < this.width &&
+      placement.yPosition < this.height &&
       placement.direction in Direction
     );
   }
