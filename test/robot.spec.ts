@@ -27,14 +27,14 @@ describe("Robot", () => {
   });
 
   describe("place robot", () => {
-    it("will place robot if valid placement", () => {
+    it("should place robot if valid placement", () => {
       robot.place(defaultPlacement);
       expect(robot.xPosition).toBe(defaultPlacement.xPosition);
       expect(robot.yPosition).toBe(defaultPlacement.yPosition);
       expect(robot.direction).toBe(defaultPlacement.direction);
     });
 
-    it("will not place robot if invalid placement", () => {
+    it("should not place robot if invalid placement", () => {
       mockIsValidPlacement.mockReturnValue(false);
       robot.place(defaultPlacement);
       expect(logSpy).toHaveBeenCalledWith(
@@ -44,7 +44,7 @@ describe("Robot", () => {
   });
 
   describe("move robot", () => {
-    it("will increase y position if facing north", () => {
+    it("should increase y position if facing north", () => {
       robot.place(defaultPlacement);
       robot.move();
       expect(robot.xPosition).toBe(defaultPlacement.xPosition);
@@ -52,7 +52,7 @@ describe("Robot", () => {
       expect(robot.direction).toBe(defaultPlacement.direction);
     });
 
-    it("will increase x position if facing east", () => {
+    it("should increase x position if facing east", () => {
       robot.place({ ...defaultPlacement, direction: Direction.EAST });
       robot.move();
       expect(robot.xPosition).toBe(defaultPlacement.xPosition + 1);
@@ -60,7 +60,7 @@ describe("Robot", () => {
       expect(robot.direction).toBe(Direction.EAST);
     });
 
-    it("will decrease y position if facing south", () => {
+    it("should decrease y position if facing south", () => {
       robot.place({ ...defaultPlacement, direction: Direction.SOUTH });
       robot.move();
       expect(robot.xPosition).toBe(defaultPlacement.xPosition);
@@ -68,7 +68,7 @@ describe("Robot", () => {
       expect(robot.direction).toBe(Direction.SOUTH);
     });
 
-    it("will decrease x position if facing west", () => {
+    it("should decrease x position if facing west", () => {
       robot.place({ ...defaultPlacement, direction: Direction.WEST });
       robot.move();
       expect(robot.xPosition).toBe(defaultPlacement.xPosition - 1);
@@ -76,7 +76,7 @@ describe("Robot", () => {
       expect(robot.direction).toBe(Direction.WEST);
     });
 
-    it("will not move if not already placed", () => {
+    it("should not move if not already placed", () => {
       robot.move();
       expect(logSpy).toHaveBeenCalledWith(
         expect.stringMatching(ROBOT_NOT_PLACED_ERROR)
@@ -85,19 +85,19 @@ describe("Robot", () => {
   });
 
   describe("turn robot", () => {
-    it("can turn left", () => {
+    it("should turn left", () => {
       robot.place(defaultPlacement);
       robot.turn("left");
       expect(robot.direction).toBe(Direction.WEST);
     });
 
-    it("can turn right", () => {
+    it("should turn right", () => {
       robot.place(defaultPlacement);
       robot.turn("right");
       expect(robot.direction).toBe(Direction.EAST);
     });
 
-    it("will not turn if not placed beforehand", () => {
+    it("should not turn if not placed beforehand", () => {
       robot.turn("left");
       expect(logSpy).toHaveBeenCalledWith(
         expect.stringMatching(ROBOT_NOT_PLACED_ERROR)
@@ -107,7 +107,7 @@ describe("Robot", () => {
 
   describe("report robot placemet", () => {
     const logSpy = jest.spyOn(console, "log");
-    it("will report valid placement", () => {
+    it("should report valid placement", () => {
       robot.place(defaultPlacement);
       robot.report();
       expect(logSpy).toHaveBeenCalledWith(
@@ -117,7 +117,7 @@ describe("Robot", () => {
       );
     });
 
-    it("will not report location if not placed beforehand", () => {
+    it("should not report location if not placed beforehand", () => {
       robot.report();
       expect(logSpy).toHaveBeenCalledWith(
         expect.stringMatching(ROBOT_NOT_PLACED_ERROR)
