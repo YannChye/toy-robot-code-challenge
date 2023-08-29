@@ -1,8 +1,5 @@
-import {
-  COLOR,
-  ROBOT_INVALID_LOCATION_ERROR,
-  ROBOT_NOT_PLACED_ERROR,
-} from "./constant";
+import { ROBOT_INVALID_LOCATION_ERROR, ROBOT_NOT_PLACED_ERROR } from "./constant";
+import { COLOR, colorMessage } from "./helper";
 import Table from "./table";
 import { Direction, Placement } from "./types";
 
@@ -17,7 +14,7 @@ export default class Robot {
       this.yPosition = placement.yPosition;
       this.direction = placement.direction as Direction;
     } else {
-      console.log(COLOR.RED + ROBOT_INVALID_LOCATION_ERROR + COLOR.RESET);
+      console.log(colorMessage(ROBOT_INVALID_LOCATION_ERROR, COLOR.RED));
     }
   }
 
@@ -38,7 +35,7 @@ export default class Robot {
         newXPosition -= 1;
         break;
       default:
-        console.log(COLOR.RED + ROBOT_NOT_PLACED_ERROR + COLOR.RESET);
+        console.log(colorMessage(ROBOT_NOT_PLACED_ERROR, COLOR.RED));
         return;
     }
     this.place({
@@ -57,7 +54,7 @@ export default class Robot {
       directionIndex = (directionIndex + 4) % 4;
       this.direction = Object.values(Direction)[directionIndex];
     } else {
-      console.log(COLOR.RED + ROBOT_NOT_PLACED_ERROR + COLOR.RESET);
+      console.log(colorMessage(ROBOT_NOT_PLACED_ERROR, COLOR.RED));
     }
   }
 
@@ -68,10 +65,13 @@ export default class Robot {
       this.direction
     ) {
       console.log(
-        `${COLOR.GREEN}Robot location: ${this.xPosition},${this.yPosition},${this.direction}${COLOR.RESET}`
+        colorMessage(
+          `Robot location: ${this.xPosition},${this.yPosition},${this.direction}`,
+          COLOR.GREEN
+        )
       );
     } else {
-      console.log(COLOR.RED + ROBOT_NOT_PLACED_ERROR + COLOR.RESET);
+      console.log(colorMessage(ROBOT_NOT_PLACED_ERROR, COLOR.RED));
     }
   }
 }

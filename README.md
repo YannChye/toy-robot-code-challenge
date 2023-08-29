@@ -47,16 +47,18 @@ Robot location: 3,3,NORTH
 
 ## HOW TO RUN
 
+### Prerequisite
+
+- Install `Node` by following the instructions [here](https://nodejs.org/en/download).
+- If this is your first time running this app, run `npm install`.
+- Alternatively you may also run the app within a docker container. See [Docker](#docker).
+
+### Use
+
+- To start the toy robot, run `npm run start`.
+- To run the unit tests, run `npm run test`.
+
 ### Docker
 
-To run the toy robot app:
-
-```
-docker compose run --rm toy-robot
-```
-
-To run the jest tests:
-
-```
-docker compose run --rm test
-```
+- To run the toy robot app within docker, run `docker compose run --rm toy-robot`.
+  To run the unit tests within docker, run`docker compose run --rm test`.`
