@@ -19,31 +19,9 @@ This is a **console application** that simulates a toy robot moving on a square 
 | `RIGHT`       | will rotate the robot 90 degrees to the RIGHT without changing the position of the robot.                                                                                                                                                                                                                                                                                                                                           |
 | `REPORT`      | will announce the X,Y and F of the robot, where X and Y are the position of the robot, and F is the direction the robot is facing.                                                                                                                                                                                                                                                                                                  |
 
-## EXAMPLE INPUT AND OUTPUT
+## EXAMPLE
 
-```
-> PLACE 0,0,NORTH
-> MOVE
-> REPORT
-Robot location: 0,1,NORTH
-```
-
-```
-> PLACE 0,0,NORTH
-> LEFT
-> REPORT
-Robot location: 0,0,WEST
-```
-
-```
-> PLACE 1,2,EAST
-> MOVE
-> MOVE
-> LEFT
-> MOVE
-> REPORT
-Robot location: 3,3,NORTH
-```
+<img src="./example.png" alt="Example of the toy robot application">
 
 ## HOW TO RUN
 
